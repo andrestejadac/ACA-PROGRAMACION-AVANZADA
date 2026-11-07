@@ -1,0 +1,39 @@
+erDiagram
+    AUTORES ||--o{ LIBROS : escribe
+    EDITORIALES ||--o{ LIBROS : publica
+    USUARIOS ||--o{ PRESTAMOS : realiza
+    LIBROS ||--o{ PRESTAMOS : "se presta"
+    AUTORES {
+        int IdAutor PK
+        varchar Nombre
+        varchar Apellido
+    }
+    EDITORIALES {
+        int IdEditorial PK
+        varchar Nombre UK
+    }
+    LIBROS {
+        varchar ISBN PK
+        varchar Titulo
+        int IdAutor FK
+        int IdEditorial FK
+        varchar Categoria
+        int Anio
+        int Existencias
+    }
+    USUARIOS {
+        int IdUsuario PK
+        varchar Nombre
+        varchar Apellido
+        varchar Documento UK
+        varchar Telefono
+        varchar Correo
+    }
+    PRESTAMOS {
+        int IdPrestamo PK
+        int IdUsuario FK
+        varchar ISBN FK
+        date FechaPrestamo
+        date FechaDevolucion
+        varchar Estado
+    }

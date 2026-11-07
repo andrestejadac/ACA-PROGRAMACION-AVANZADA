@@ -1,0 +1,12 @@
+## Visual Studio / .NET
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+*.cache
+*.pdb
+*.vsidx
+.futdcache.*
+DocumentLayout*.json

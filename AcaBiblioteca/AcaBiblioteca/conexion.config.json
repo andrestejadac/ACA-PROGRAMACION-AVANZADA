@@ -1,0 +1,2 @@
+
+{ "ConnectionString": "Server=localhost\\SQLEXPRESS;Database=AcaBiblioteca;Integrated Security=true;TrustServerCertificate=true;" }

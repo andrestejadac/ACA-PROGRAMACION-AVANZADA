@@ -1,0 +1,20 @@
+flowchart LR
+    A(["Bibliotecario /<br/>Administrador"])
+    subgraph SIS["Sistema de Gestión de Biblioteca"]
+        CU1(["CU01 Gestionar libros"])
+        CU2(["CU02 Gestionar autores"])
+        CU3(["CU03 Gestionar editoriales"])
+        CU4(["CU04 Gestionar usuarios"])
+        CU5(["CU05 Registrar préstamo"])
+        CU6(["CU06 Registrar devolución"])
+        CU7(["CU07 Editar o eliminar préstamos"])
+        CU8(["CU08 Consultar reportes"])
+    end
+    A --- CU1
+    A --- CU2
+    A --- CU3
+    A --- CU4
+    A --- CU5
+    A --- CU6
+    A --- CU7
+    A --- CU8

@@ -1,0 +1,79 @@
+classDiagram
+    direction LR
+    class Persona {
+        -string nombre
+        -string apellido
+        +string Nombre
+        +string Apellido
+        +string NombreCompleto
+    }
+    class Autor {
+        +int IdAutor
+    }
+    class Usuario {
+        +int IdUsuario
+        +string Documento
+        +string Telefono
+        +string Correo
+    }
+    class Editorial {
+        +int IdEditorial
+        +string Nombre
+    }
+    class Libro {
+        +string ISBN
+        +string Titulo
+        +int IdAutor
+        +int IdEditorial
+        +string Categoria
+        +int? Anio
+        +int Existencias
+    }
+    class Prestamo {
+        +int IdPrestamo
+        +int IdUsuario
+        +string ISBN
+        +DateTime FechaPrestamo
+        +DateTime? FechaDevolucion
+        +string Estado
+    }
+    class LibroNegocio
+    class AutorNegocio
+    class EditorialNegocio
+    class UsuarioNegocio
+    class PrestamoNegocio {
+        +Registrar()
+        +Devolver()
+        +EditarFechaPrestamo()
+        +Eliminar()
+    }
+    class ReporteNegocio
+    class LibroDatos
+    class AutorDatos
+    class EditorialDatos
+    class UsuarioDatos
+    class PrestamoDatos
+    class ReporteDatos
+    class Conexion {
+        +ObtenerConexion() SqlConnection
+    }
+    class ReglaNegocioException
+    Persona <|-- Autor
+    Persona <|-- Usuario
+    Autor "1" --> "*" Libro : escribe
+    Editorial "1" --> "*" Libro : publica
+    Usuario "1" --> "*" Prestamo : realiza
+    Libro "1" --> "*" Prestamo : se presta
+    LibroNegocio --> LibroDatos
+    AutorNegocio --> AutorDatos
+    EditorialNegocio --> EditorialDatos
+    UsuarioNegocio --> UsuarioDatos
+    PrestamoNegocio --> PrestamoDatos
+    ReporteNegocio --> ReporteDatos
+    LibroDatos --> Conexion
+    AutorDatos --> Conexion
+    EditorialDatos --> Conexion
+    UsuarioDatos --> Conexion
+    PrestamoDatos --> Conexion
+    ReporteDatos --> Conexion
+    PrestamoNegocio ..> ReglaNegocioException : lanza

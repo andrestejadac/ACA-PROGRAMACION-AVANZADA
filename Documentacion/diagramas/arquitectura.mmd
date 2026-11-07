@@ -1,0 +1,24 @@
+flowchart TB
+    subgraph PRE["Capa de presentación - Windows Forms"]
+        F1["FrmPrincipal / FrmInicio"]
+        F2["FrmLibros · FrmAutores · FrmEditoriales · FrmUsuarios"]
+        F3["FrmPrestamos · FrmReportes"]
+    end
+    subgraph NEG["Capa de lógica de negocio - carpeta Negocio"]
+        N1["LibroNegocio · AutorNegocio · EditorialNegocio · UsuarioNegocio"]
+        N2["PrestamoNegocio · ReporteNegocio"]
+        N3["Validador"]
+    end
+    subgraph DAT["Capa de acceso a datos - carpeta Datos"]
+        D1["LibroDatos · AutorDatos · EditorialDatos · UsuarioDatos"]
+        D2["PrestamoDatos · ReporteDatos"]
+        D3["Conexion · ErroresSql"]
+    end
+    subgraph BD["Base de datos - SQL Server"]
+        T["Autores · Editoriales · Libros · Usuarios · Prestamos"]
+    end
+    ENT[/"Entidades: Persona, Autor, Usuario, Editorial, Libro, Prestamo"/]
+    PRE --> NEG --> DAT --> BD
+    ENT -.-> PRE
+    ENT -.-> NEG
+    ENT -.-> DAT

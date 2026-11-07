@@ -1,0 +1,14 @@
+flowchart TD
+    A([Seleccionar usuario, libro y fecha]) --> B{Datos completos y<br/>fecha no futura?}
+    B -- No --> X1[/Mensaje de validación/]
+    B -- Sí --> C{Usuario y libro<br/>existen?}
+    C -- No --> X1
+    C -- Sí --> D{Hay existencias<br/>del libro?}
+    D -- No --> X1
+    D -- Sí --> E{Ya lo tiene prestado o<br/>tiene 3 préstamos activos?}
+    E -- Sí --> X1
+    E -- No --> T
+    subgraph T["Transacción SQL"]
+        F["UPDATE Libros: Existencias - 1<br/>(solo si Existencias > 0)"] --> G["INSERT Prestamos: estado Prestado"]
+    end
+    T --> OK([Confirmación al usuario])
