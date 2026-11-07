@@ -143,7 +143,12 @@ docs: completa el diccionario de datos
 
 ## 👥 Integrantes
 
-- Andrés Felipe Tejada Caraballo
-- _[Agregar los demás integrantes del grupo]_
+ANDRES FELIPE TEJADA CARABALLO - 54465
 
-**Docente:** _[Nombre del docente]_ · **Institución:** CUN · **Año:** 2026
+SEBASTIAN CIFUENTES SILVA
+
+CARLOS ERWIN HURTATIZ GOMEZ - 54463
+
+Docente:\
+
+VERONICA CASTRO
